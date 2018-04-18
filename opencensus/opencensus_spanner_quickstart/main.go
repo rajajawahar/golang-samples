@@ -36,6 +36,11 @@ func main() {
 	view.RegisterExporter(exporter)
 	trace.RegisterExporter(exporter)
 
+	// Use trace.AlwaysSample() to always record traces. The
+	// default sampler skips some traces to conserve resources,
+	// but can make it hard to debug test traffic.
+	// trace.SetDefaultSampler(trace.AlwaysSample())
+
 	// This database must exist.
 	databaseName := "projects/your-project-id/instances/your-instance-id/databases/your-database-id"
 
